@@ -48,6 +48,25 @@ header {
       color: white;
     }
   }
+
+  @media (max-width: 768px) {
+    height: auto;
+    flex-direction: column;
+
+    h1 {
+      width: 100%;
+    }
+
+    div#menu {
+      flex-direction: column;
+      width: 100%;
+      a {
+        width: 100%;
+        padding: 15px;
+      }
+    }
+  }
+
 }
 
 footer {
@@ -70,6 +89,14 @@ footer {
       text-decoration: none;
     }
   }
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    div.column {
+      width: 100%;
+    }
+  }
+
 }
 
 
