@@ -1,0 +1,78 @@
+@import "./app.theme.scss";
+
+header {
+  width: 100%;
+  height: 70px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  background: white;
+  border-bottom: 2px solid $g2;
+
+  h1 {
+    padding: 15px;
+    font-size: 24px;
+    font-weight: 300;
+    background: $primary2;
+    color: white;
+    width: 300px;
+    height: 100%;
+    padding-top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  div#menu {
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+  }
+
+  a {
+    text-decoration: none;
+    color: $primary2;
+    width: 100px;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    &:hover {
+      background: $primary2;
+      color: white;
+    }
+    &.active {
+      background: $primary1;
+      color: white;
+    }
+  }
+}
+
+footer {
+  width: 100%;
+  height: 200px;
+  background: white;
+  border-top: 2px solid $g2;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  div.column {
+    padding: 15px;
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    a {
+      padding: 5px 0;
+      color: $primary1;
+      text-decoration: none;
+    }
+  }
+}
+
+
+div#content {
+  min-height: calc(100vh - 270px);
+}

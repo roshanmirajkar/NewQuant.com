@@ -1,0 +1,29 @@
+<header>
+  <h1>Prometheus Protocols</h1>
+  <div id="menu">
+    <a routerLink="/" class="easing" [ngClass]="{'active': currentPage == ''}">Home</a>
+    <a routerLink="/about" class="easing" [ngClass]="{'active': currentPage == 'about'}">About</a>
+    <a routerLink="/contact" class="easing" [ngClass]="{'active': currentPage == 'whitepaper'}">Whitepaper</a>
+    <a routerLink="/news" class="easing" [ngClass]="{'active': currentPage == 'news'}">News</a>
+  </div>
+</header>
+<div id="content">
+  <router-outlet></router-outlet>
+</div>
+<footer>
+  <div class="column">
+    <a>Pacific Heights, San Francisco, California</a>
+    <a>+1 289 952 3406</a>
+  </div>
+  <div class="column">
+    <a href="mailto:prometheusprotocols@protonmail.com">
+      <i class="fa fa-envelope-o"></i> prometheusprotocols@protonmail.com
+    </a>
+    <a href="https://twitter.com/gridsingularity" target="_blank">
+      <i class="fa fa-twitter"></i> @gridsingularity
+    </a>
+    <a href="https://www.linkedin.com/company/11316270/">
+      <i class="fa fa-linkedin"></i> Prometheus Protocols
+    </a>
+  </div>
+</footer>

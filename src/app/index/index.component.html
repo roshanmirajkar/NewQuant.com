@@ -1,0 +1,50 @@
+<div class="container center">
+  <div class="cards">
+
+    <div class="card">
+      <div class="top">
+        <h2>Send BTC to this address</h2>
+        <ngx-qrcode
+        [qrc-value] = "wallets.btc"
+        qrc-class = "aclass"
+        qrc-errorCorrectionLevel = "L">
+        </ngx-qrcode>
+      </div>
+      <p>
+        <i class="cc BTC"></i>
+        {{wallets.btc}}
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="top">
+        <h2>Send ETH to this address</h2>
+        <ngx-qrcode
+        [qrc-value] = "wallets.eth"
+        qrc-class = "aclass"
+        qrc-errorCorrectionLevel = "L">
+        </ngx-qrcode>
+      </div>
+      <p>
+        <i class="cc ETH"></i>
+        {{wallets.eth}}
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="top">
+        <h2>Send LTC to this address</h2>
+        <ngx-qrcode
+        [qrc-value] = "wallets.ltc"
+        qrc-class = "aclass"
+        qrc-errorCorrectionLevel = "L">
+        </ngx-qrcode>
+      </div>
+      <p>
+        <i class="cc LTC"></i>
+        {{wallets.ltc}}
+      </p>
+    </div>
+
+  </div>
+</div>

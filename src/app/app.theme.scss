@@ -1,0 +1,22 @@
+$primary1: #ff2015;
+$primary2: #ff6961;
+$primary3: #ff2015;
+
+$accent1: #157eff;
+$accent2: #61a8ff;
+$accent3: #aed2ff;
+
+$g1: #F9F9F9;
+$g2: #F4F4F4;
+$g3: #CBCBCB;
+
+div.container {
+  width: 100%;
+  min-height: calc(100vh - 270px);
+  &.center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+}

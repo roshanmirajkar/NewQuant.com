@@ -1,0 +1,74 @@
+@import "../app.theme.scss";
+
+div.container {
+  padding: 30px;
+  h1 {
+    font-weight: 300;
+    color: $primary1;
+    font-size: 48px;
+  }
+  h2 {
+    font-weight: 300;
+    color: $primary1;
+    font-size: 32px;
+    margin-top: 45px;
+  }
+  div.red-line {
+    border-bottom: 1px solid $primary1;
+    padding-top: 15px;
+    margin-bottom: 15px;
+  }
+}
+
+div.cards {
+  display: flex;
+  flex-direction: row;
+  div.card {
+    width: 360px;
+    background: white;
+    border: 2px solid $g2;
+    border-radius: 4px;
+    margin-right: 15px;
+    margin-top: 30px;
+    padding: 15px;
+    div.links {
+      width: 100%;
+      padding: 15px;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      a {
+        padding: 15px;
+        color: $accent1;
+        text-decoration: none;
+      }
+    }
+    img {
+      border: 2px solid $g2;
+      border-radius: 50%;
+      display: block;
+      width: 200px;
+      margin: auto;
+    }
+    h3, h4 {
+      color: $primary2;
+      margin: 0 0 5px 0;
+      text-align: center;
+    }
+    h3 {
+      border-top: 1px solid $primary1;
+      padding-top: 10px;
+    }
+    h4 {
+      padding-bottom: 10px;
+      border-bottom: 1px solid $primary1;
+      margin-bottom: 30px;
+    }
+    p {
+      color: $accent1;
+      font-weight: 600;
+      font-size: 14px;
+    }
+  }
+}
