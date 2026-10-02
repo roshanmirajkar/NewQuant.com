@@ -25,16 +25,17 @@ export const SFX_CUES: readonly SfxCue[] = [
   {
     id: "slam-whoosh",
     file: "sfx/01_slam-whoosh.wav",
-    // The placeholder peaks 6 frames (0.2s) into the file.
-    frame: Math.max(0, IMPACT_FRAME - 6),
-    volume: 0.55,
-    todo: "TODO swap: fast rising whoosh. Must PEAK on the frame STOP lands (IMPACT_FRAME).",
+    // The placeholder crests 6 frames (0.2s) into the file; starting it 7 frames
+    // before impact makes it crest one frame ahead of the hit, not on top of it.
+    frame: Math.max(0, IMPACT_FRAME - 7),
+    volume: 0.5,
+    todo: "TODO swap: fast rising whoosh that crests ~1 frame BEFORE IMPACT_FRAME and is gone by it.",
   },
   {
     id: "slam-hit",
     file: "sfx/02_slam-hit.wav",
     frame: IMPACT_FRAME,
-    volume: 0.9,
+    volume: 0.85,
     todo: "TODO swap: heavy sub-boom impact. Transient on its first sample.",
   },
   {

@@ -11,4 +11,7 @@ Config.setRspack(true);
 Config.setVideoImageFormat("jpeg");
 // Frames are JPEG intermediates; max quality so the grain and flat lime survive the crf-18 encode.
 Config.setJpegQuality(100);
+// Standard yuv420p / tv-range / BT.709 tagging; without it the file is tagged
+// full-range BT.470BG, which some social platforms render with crushed blacks.
+Config.setColorSpace("bt709");
 Config.setOverwriteOutput(true);

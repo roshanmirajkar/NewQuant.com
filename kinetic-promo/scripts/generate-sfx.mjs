@@ -9,7 +9,8 @@
  * entry below so the script stops overwriting it).
  *
  * Timing contract with the video (30fps):
- *   01 slam-whoosh      peaks 0.20s in      -> cue starts 6 frames before impact
+ *   01 slam-whoosh      crests 0.20s in     -> cue starts 7 frames before impact (frame 0),
+ *                                              so it crests 1 frame before the hit
  *   06 wipe-riser       peaks at its end    -> ends on the brand-hit cue
  */
 import { mkdirSync, writeFileSync } from "node:fs";
@@ -105,14 +106,15 @@ const save = (name, channels, peak = 0.92) => {
 // ---------- the sounds ----------------------------------------------------
 
 const sounds = {
-  // Rising whoosh, peaks 0.20s in (6 frames), then cut short by the impact.
+  // Rising whoosh, crests 0.20s in (6 frames) and drops away fast, so it has
+  // cleared out by the time the hit transient lands one frame later.
   "01_slam-whoosh.wav": () =>
     render(0.4, (ch) => {
       const r = rng(100 + ch);
       const f = new SVF();
       return (t) => {
         const fc = t < 0.2 ? expo(250, 4500, t / 0.2) : expo(4500, 1800, (t - 0.2) / 0.2);
-        const env = t < 0.2 ? Math.pow(t / 0.2, 2.2) : Math.exp(-(t - 0.2) / 0.05);
+        const env = t < 0.2 ? Math.pow(t / 0.2, 2.2) : Math.exp(-(t - 0.2) / 0.02);
         return f.process(white(r), fc, 1.6).band * env * 2.2;
       };
     }),

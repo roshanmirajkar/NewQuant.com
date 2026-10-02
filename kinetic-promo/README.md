@@ -40,9 +40,10 @@ Timing constants are in `src/timeline.ts`; spring configs sit at the top of each
 
 `src/sfx.ts` is the cue sheet: ten `<Audio>` slots (frame, volume, and a `todo` note describing what each sound should do). The files in `public/sfx/` are placeholders synthesised by `scripts/generate-sfx.mjs` (whooshes, hits, a riser, a chime) so the video has a full mix out of the box.
 
-To use licensed samples, drop a file with the **same name** into `public/sfx/` and delete its entry in `generate-sfx.mjs` so `npm run sfx` stops overwriting it. Two cues have timing contracts: `01_slam-whoosh.wav` should peak 6 frames in, and `06_wipe-riser.wav` should peak on its last frame.
+To use licensed samples, drop a file with the **same name** into `public/sfx/` and delete its entry in `generate-sfx.mjs` so `npm run sfx` stops overwriting it. Two cues have timing contracts: `01_slam-whoosh.wav` should crest 6 frames in (its cue starts 7 frames before impact, so it crests one frame ahead of the hit), and `06_wipe-riser.wav` should peak on its last frame.
 
 ## Notes
 
 - If you swap the font, re-derive the three metric constants in `src/font.ts`; the centring maths depends on cap-height and ascent/descent.
-- Grain is incompressible by design, so it dominates the file size. Lower `grain.opacity` (or set it to 0) for a much smaller file.
+- Grain dominates the file size, because fresh noise every frame can't be predicted by the encoder. At crf 18 the grain strength decides the size: `opacity` 0.16 ≈ 146 MB, 0.10 ≈ 60 MB, **0.06 (default) ≈ 25 MB**; at 0.04 or below the encoder removes the grain, and with no grain at all the whole video is under 1 MB.
+- The render config pins BT.709 / tv-range `yuv420p` tagging (`remotion.config.ts`), which is what Reels, Shorts and LinkedIn expect.

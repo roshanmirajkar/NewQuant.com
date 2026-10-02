@@ -43,7 +43,7 @@ export type KineticPromoProps = {
   grain: {
     /** 0 disables the overlay. */
     opacity: number;
-    /** feTurbulence baseFrequency: higher = finer grain. */
+    /** feTurbulence baseFrequency: higher = finer grain. Below ~0.4 it turns blotchy. */
     baseFrequency: number;
   };
   audio: {
@@ -73,9 +73,12 @@ export const defaultProps: KineticPromoProps = {
     maxTextWidth: 900,
     maxStackFontSize: 330,
   },
+  // Fresh noise every frame is the worst case for H.264, so this is a size
+  // dial as much as a look dial. At crf 18: 0.16 -> ~146 MB, 0.10 -> ~60 MB,
+  // 0.06 -> ~25 MB, and at <= 0.04 the encoder drops the grain entirely.
   grain: {
-    opacity: 0.16,
-    baseFrequency: 0.85,
+    opacity: 0.06,
+    baseFrequency: 0.7,
   },
   audio: {
     enabled: true,
