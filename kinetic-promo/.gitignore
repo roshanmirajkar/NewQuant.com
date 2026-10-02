@@ -1,0 +1,9 @@
+node_modules
+dist
+.DS_Store
+.env
+
+# Renders: ignore everything in out/ except the delivered master and its four review stills.
+out/*
+!out/kinetic.mp4
+!out/stills/
